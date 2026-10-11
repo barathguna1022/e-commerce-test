@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>VOLTX — Premium Tech Store | Headphones, Drones, Wearables</title>
+<meta name="description" content="VOLTX is a premium tech store. Shop Aura headphones, Volt drones, Pulse watches with free express shipping and 2-year warranty." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%237A1622'/%3E%3Cpath d='M17 6 8 18h6l-1 8 9-12h-6l1-8z' fill='%23D4A24E'/%3E%3C/svg%3E">
+</head>
+<body>
+
+<div id="preloader" aria-hidden="true">
+  <div class="loader-core">
+    <div class="loader-mark">VOLTX</div>
+    <div class="loader-bar"><span></span></div>
+  </div>
+</div>
+
+<!-- Unique shopping cursor -->
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+<div class="cursor-ring" id="cursorRing" aria-hidden="true">
+  <svg id="cursorBag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 8h15l-1.5 12h-12z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+  <span id="cursorLabel"></span>
+</div>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<div class="announce">Free express shipping on orders over $99 &nbsp;·&nbsp; 30-day returns &nbsp;·&nbsp; 2-year warranty</div>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#home" class="brand">
+      <span class="brand-mark"><svg viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#7A1622"/><path d="M17 6 8 18h6l-1 8 9-12h-6l1-8z" fill="#D4A24E"/></svg></span>
+      <span class="brand-name">VOLTX</span>
+      <span class="brand-sub">TECH STORE</span>
+    </a>
+
+    <!-- Eye-tracking mascot moved to big top stage (see volty-bar below) -->
+
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#home" class="active">Home</a>
+      <a href="#journey">Best sellers</a>
+      <a href="#shop">Shop</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#support">Support</a>
+    </nav>
+
+    <div class="nav-actions">
+      <label class="search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="searchInput" type="search" placeholder="Search headphones, drones…" autocomplete="off" aria-label="Search products" />
+      </label>
+      <button class="icon-btn" id="themeBtn" title="Toggle light / dark" aria-label="Toggle theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></svg>
+      </button>
+      <button class="icon-btn" id="wishlistBtn" title="Wishlist" aria-label="Wishlist">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21C7 16.5 3 13 3 8.8 3 6 5.2 4 7.8 4c1.7 0 3.2.9 4.2 2.3C13 4.9 14.5 4 16.2 4 18.8 4 21 6 21 8.8c0 4.2-4 7.7-9 12.2z"/></svg>
+        <span class="count-pill hidden" id="wishCount">0</span>
+      </button>
+      <button class="cart-btn" id="cartOpen" aria-label="Open cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8h15l-1.5 12h-12z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <span class="cart-label">Cart</span>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="Menu">☰</button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home">Home</a><a href="#journey">Best sellers</a><a href="#shop">Shop</a><a href="#reviews">Reviews</a><a href="#support">Support</a>
+  </div>
+</header>
+
+<main>
+<!-- BIG VOLTY — top of site, eyes follow your cursor -->
+<section class="volty-bar" id="voltyBar">
+  <div class="volty-inner reveal visible">
+    <div class="mascot mascot-big" id="mascot" title="Volty, our tech specialist">
+      <svg id="mascotSvg" viewBox="0 0 200 200" role="img" aria-label="Volty, our tech specialist">
+        <defs>
+          <radialGradient id="irisGrad" cx="38%" cy="32%" r="72%">
+            <stop offset="0%" stop-color="#8A4A2A"/>
+            <stop offset="45%" stop-color="#4A2110"/>
+            <stop offset="100%" stop-color="#170806"/>
+          </radialGradient>
+          <linearGradient id="skinGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#F6D3AC"/>
+            <stop offset="55%" stop-color="#E3A878"/>
+            <stop offset="100%" stop-color="#B97A4E"/>
+          </linearGradient>
+          <linearGradient id="hairGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#3A241A"/>
+            <stop offset="100%" stop-color="#170D08"/>
+          </linearGradient>
+          <linearGradient id="shirtGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#7A1622"/>
+            <stop offset="100%" stop-color="#3A0D13"/>
+          </linearGradient>
+          <!-- clip irises INSIDE the almond whites so they can never poke onto skin -->
+          <clipPath id="clipL"><path d="M64 100 Q77 93 90 100 Q77 107 64 100 Z"/></clipPath>
+          <clipPath id="clipR"><path d="M110 100 Q123 93 136 100 Q123 107 110 100 Z"/></clipPath>
+        </defs>
+        <!-- shadow -->
+        <ellipse cx="100" cy="190" rx="54" ry="9" fill="rgba(0,0,0,.45)"/>
+        <!-- shoulders / shirt -->
+        <path d="M38 200 C38 172 62 160 100 160 C138 160 162 172 162 200 Z" fill="url(#shirtGrad)"/>
+        <path d="M88 162 L100 178 L112 162" fill="none" stroke="#D4A24E" stroke-width="2.5"/>
+        <rect x="60" y="176" width="26" height="10" rx="5" fill="#D4A24E" opacity=".85"/>
+        <!-- neck with shadow -->
+        <rect x="86" y="128" width="28" height="34" rx="10" fill="#D89A6B"/>
+        <ellipse cx="100" cy="134" rx="15" ry="6" fill="#8A4A2A" opacity=".45"/>
+        <!-- ears -->
+        <ellipse cx="52" cy="106" rx="9" ry="13" fill="#D89A6B"/>
+        <ellipse cx="148" cy="106" rx="9" ry="13" fill="#D89A6B"/>
+        <!-- headphones: maroon band, brass cups, mic boom -->
+        <path d="M40 96 C40 22 160 22 160 96" fill="none" stroke="#4A151C" stroke-width="13" stroke-linecap="round"/>
+        <rect x="30" y="84" width="26" height="48" rx="12" fill="#2A1114" stroke="#8A5A33" stroke-width="2.5"/>
+        <rect x="144" y="84" width="26" height="48" rx="12" fill="#2A1114" stroke="#8A5A33" stroke-width="2.5"/>
+        <rect x="34" y="92" width="14" height="32" rx="7" fill="#7A1622"/>
+        <rect x="152" y="92" width="14" height="32" rx="7" fill="#7A1622"/>
+        <path d="M158 128 Q150 142 132 144" fill="none" stroke="#2A1114" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="130" cy="144" r="5" fill="#D4A24E"/>
+        <!-- head -->
+        <g id="mascotHead">
+          <path d="M100 34 C72 34 58 56 58 88 C58 118 72 146 100 146 C128 146 142 118 142 88 C142 56 128 34 100 34 Z" fill="url(#skinGrad)"/>
+          <ellipse cx="72" cy="118" rx="10" ry="7" fill="#A85F36" opacity=".35"/>
+          <ellipse cx="128" cy="118" rx="10" ry="7" fill="#A85F36" opacity=".35"/>
+          <path d="M100 26 C70 26 54 48 56 78 C58 70 62 58 70 54 C68 64 68 70 70 76 C74 62 84 48 100 48 C116 48 126 62 130 76 C132 70 132 64 130 54 C138 58 142 70 144 78 C146 48 130 26 100 26 Z" fill="url(#hairGrad)"/>
+          <path d="M56 78 C54 96 55 108 58 116 C60 106 60 92 60 82 Z" fill="#170D08"/>
+          <path d="M144 78 C146 96 145 108 142 116 C140 106 140 92 140 82 Z" fill="#170D08"/>
+          <path id="browL" d="M64 84 Q76 78 90 83 Q88 87 76 87 Q66 87 64 84 Z" fill="#241209"/>
+          <path id="browR" d="M110 83 Q124 78 136 84 Q134 87 124 87 Q112 87 110 83 Z" fill="#241209"/>
+          <g id="mascotEyes">
+            <!-- LEFT: socket shadow, white, clipped eyeball, lids on top -->
+            <ellipse cx="77" cy="101" rx="16" ry="11" fill="#8A4A2A" opacity=".28"/>
+            <path d="M63 100 Q76 92 91 100 Q76 108 63 100 Z" fill="#FDF6EC"/>
+            <g clip-path="url(#clipL)"><g id="pupilL">
+              <circle cx="77" cy="100.5" r="9" fill="#FDF6EC"/>
+              <circle cx="77" cy="100.5" r="6.6" fill="url(#irisGrad)" stroke="#241009" stroke-width="1.4"/>
+              <circle cx="77" cy="100.5" r="6.6" fill="none" stroke="#000" stroke-width=".8" opacity=".35"/>
+              <circle cx="77" cy="100.5" r="3" fill="#0B0403"/>
+              <circle cx="79.2" cy="98.2" r="1.9" fill="#fff"/>
+              <circle cx="75.2" cy="102.4" r=".9" fill="#fff" opacity=".65"/>
+            </g></g>
+            <path d="M63 100 Q76 92 91 100 Q76 108 63 100 Z" fill="none" stroke="#2A1409" stroke-width="1.4" opacity=".5"/>
+            <path d="M62 99.5 Q76 91 92 99.5" fill="none" stroke="#241209" stroke-width="3.4" stroke-linecap="round"/>
+            <path d="M63 98.5 L59 95.5 M67 96.5 L64.5 92.5 M71 95.8 L69.5 91.5" stroke="#241209" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M66 104.5 Q77 109 88 104.5" fill="none" stroke="#B97A4E" stroke-width="1.3" stroke-linecap="round"/>
+            <circle cx="62.5" cy="100.5" r="1.4" fill="#D98A8A"/>
+            <!-- RIGHT -->
+            <ellipse cx="123" cy="101" rx="16" ry="11" fill="#8A4A2A" opacity=".28"/>
+            <path d="M109 100 Q124 92 137 100 Q124 108 109 100 Z" fill="#FDF6EC"/>
+            <g clip-path="url(#clipR)"><g id="pupilR">
+              <circle cx="123" cy="100.5" r="9" fill="#FDF6EC"/>
+              <circle cx="123" cy="100.5" r="6.6" fill="url(#irisGrad)" stroke="#241009" stroke-width="1.4"/>
+              <circle cx="123" cy="100.5" r="6.6" fill="none" stroke="#000" stroke-width=".8" opacity=".35"/>
+              <circle cx="123" cy="100.5" r="3" fill="#0B0403"/>
+              <circle cx="125.2" cy="98.2" r="1.9" fill="#fff"/>
+              <circle cx="121.2" cy="102.4" r=".9" fill="#fff" opacity=".65"/>
+            </g></g>
+            <path d="M109 100 Q124 92 137 100 Q124 108 109 100 Z" fill="none" stroke="#2A1409" stroke-width="1.4" opacity=".5"/>
+            <path d="M108 99.5 Q124 91 138 99.5" fill="none" stroke="#241209" stroke-width="3.4" stroke-linecap="round"/>
+            <path d="M137 98.5 L141 95.5 M133 96.5 L135.5 92.5 M129 95.8 L130.5 91.5" stroke="#241209" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M112 104.5 Q123 109 134 104.5" fill="none" stroke="#B97A4E" stroke-width="1.3" stroke-linecap="round"/>
+            <circle cx="137.5" cy="100.5" r="1.4" fill="#D98A8A"/>
+          </g>
+          <path d="M100 108 L98 122 Q100 124 103 122" fill="none" stroke="#8A4A2A" stroke-width="2.2" stroke-linecap="round"/>
+          <ellipse cx="100" cy="124" rx="4" ry="2" fill="#8A4A2A" opacity=".4"/>
+          <path d="M86 132 Q100 142 114 132 Q100 136 86 132 Z" fill="#7A2E28"/>
+          <path d="M88 132 Q100 139 112 132" fill="none" stroke="#3A1410" stroke-width="1.6"/>
+          <path d="M91 133 Q100 137 109 133" stroke="#fff" stroke-width="2" fill="none" opacity=".8" stroke-linecap="round"/>
+        </g>
+      </svg>
+    </div>
+    <div class="volty-copy">
+      <p class="eyebrow"><span class="eyebrow-dot"></span> Meet Volty</p>
+      <h2>Real help picking<br/>the right gear.</h2>
+      <p class="muted">Our in-house specialist tests every headphone, drone and watch before it lists. Start with the customer favourites below.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-copy reveal">
+    <p class="eyebrow"><span class="eyebrow-dot"></span> New arrival — Aura X1 · 2026 Edition</p>
+    <h1>Studio sound.<br/>Engineered for<br/>everyday life.</h1>
+    <p class="lede">Meet our most-loved headphones, drones and wearables — tested by 48,000+ customers, backed by a 2-year warranty and 30-day returns.</p>
+    <div class="hero-cta">
+      <a href="#shop" class="btn-primary">Shop best sellers
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+      </a>
+      <a href="#journey" class="btn-secondary">Explore showcase</a>
+    </div>
+    <div class="trust-row">
+      <div class="avatars"><img src="https://i.pravatar.cc/64?img=12" alt="customer"/><img src="https://i.pravatar.cc/64?img=32" alt="customer"/><img src="https://i.pravatar.cc/64?img=47" alt="customer"/><span>+48k</span></div>
+      <div class="trust-text"><span class="stars">★★★★★ <b>4.9</b></span><small>32,400 verified reviews</small></div>
+    </div>
+  </div>
+  <div class="hero-media reveal">
+    <figure class="hero-photo">
+      <img id="heroImg" src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1000&q=80&auto=format&fit=crop" alt="Aura X1 headphones" />
+      <figcaption class="hero-card" id="heroPriceCard">
+        <div><small>Aura X1 · Bestseller</small><strong>$249 <s>$349</s> <em>Save 29%</em></strong></div>
+        <button class="btn-primary btn-sm" data-add="1">Add to cart</button>
+      </figcaption>
+    </figure>
+    <ul class="hero-points">
+      <li><b>48 h</b><span>battery life</span></li>
+      <li><b>−42 dB</b><span>noise cancelling</span></li>
+      <li><b>24 h</b><span>express dispatch</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- assurance strip -->
+<div class="strip">
+  <span>Free shipping over $99</span><i>•</i><span>30-day returns</span><i>•</i><span>2-year warranty</span><i>•</i><span>Secure checkout</span><i>•</i><span>24/7 support</span>
+</div>
+
+<!-- SCROLL SHOWCASE: tall section + sticky viewport, panels swap on true scroll progress -->
+<section class="journey" id="journey">
+  <div class="journey-tall" id="journeyTall">
+    <div class="journey-pin">
+      <div class="journey-head">
+        <p class="eyebrow">Best sellers</p>
+        <h2>Customer favourites</h2>
+        <div class="journey-progress"><span id="journeyFill"></span></div>
+      </div>
+      <div class="journey-stage" id="journeyStage" data-active="0">
+        <div class="stage-glow" id="stageGlow"></div>
+        <article class="j-panel is-active" data-panel="0" data-tint="#D4A24E">
+          <div class="j-media"><span class="j-ghost">01</span><img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=900&q=80&auto=format&fit=crop" alt="Aura X1" /><span class="j-float-chip c1">48h battery</span><span class="j-float-chip c2">−42 dB ANC</span><span class="j-orbit" aria-hidden="true"><svg viewBox="0 0 100 100"><defs><path id="circ0" d="M50,50 m-36,0 a36,36 0 1,1 72,0 a36,36 0 1,1 -72,0"/></defs><text><textPath href="#circ0">BEST SELLER • VOLTX • BEST SELLER •</textPath></text></svg></span></div>
+          <div class="j-copy"><p class="step j-anim">01 / Audio · Bestseller</p><h3 class="j-anim">Aura X1 Headphones</h3><p class="muted j-anim">Adaptive ANC, graphene drivers and 48-hour battery. Our #1 rated product two years running.</p><div class="j-specs j-anim"><span>Graphene 40mm</span><span>BT 5.4</span><span>360° spatial</span></div><div class="j-anim j-cta-row"><button class="btn-primary btn-sm" data-add="1">Add — $249</button><span class="j-rating">★★★★★ 4.9</span></div></div>
+        </article>
+        <article class="j-panel" data-panel="1" data-tint="#C81E3A">
+          <div class="j-media"><span class="j-ghost">02</span><img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=900&q=80&auto=format&fit=crop" alt="Volt Drone" /><span class="j-float-chip c1">8K gimbal</span><span class="j-float-chip c2">45-min flight</span><span class="j-orbit" aria-hidden="true"><svg viewBox="0 0 100 100"><defs><path id="circ1" d="M50,50 m-36,0 a36,36 0 1,1 72,0 a36,36 0 1,1 -72,0"/></defs><text><textPath href="#circ1">PRO PICK • 8K • PRO PICK • 8K •</textPath></text></svg></span></div>
+          <div class="j-copy"><p class="step j-anim">02 / Drones · Pro pick</p><h3 class="j-anim">Volt Drone V2</h3><p class="muted j-anim">8K gimbal, 45-min flight and AI obstacle avoidance. Folds to the size of a book.</p><div class="j-specs j-anim"><span>10 km range</span><span>AI avoid</span><span>Folds flat</span></div><div class="j-anim j-cta-row"><button class="btn-primary btn-sm" data-add="3">Add — $599</button><span class="j-rating">★★★★★ 4.9</span></div></div>
+        </article>
+        <article class="j-panel" data-panel="2" data-tint="#E07856">
+          <div class="j-media"><span class="j-ghost">03</span><img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=900&q=80&auto=format&fit=crop" alt="Pulse Watch" /><span class="j-float-chip c1">14-day battery</span><span class="j-float-chip c2">Titanium</span><span class="j-orbit" aria-hidden="true"><svg viewBox="0 0 100 100"><defs><path id="circ2" d="M50,50 m-36,0 a36,36 0 1,1 72,0 a36,36 0 1,1 -72,0"/></defs><text><textPath href="#circ2">NEW ARRIVAL • TITANIUM • NEW •</textPath></text></svg></span></div>
+          <div class="j-copy"><p class="step j-anim">03 / Wearables · New</p><h3 class="j-anim">Pulse Watch Ultra</h3><p class="muted j-anim">Titanium case, ECG + SpO2 and a genuine 14-day battery. 5ATM waterproof.</p><div class="j-specs j-anim"><span>ECG + SpO2</span><span>5ATM</span><span>AMOLED</span></div><div class="j-anim j-cta-row"><button class="btn-primary btn-sm" data-add="2">Add — $199</button><span class="j-rating">★★★★★ 4.8</span></div></div>
+        </article>
+      </div>
+      <div class="j-dots" id="jDots"><button class="on" data-j="0">01</button><button data-j="1">02</button><button data-j="2">03</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- MORE DEPARTMENTS (added below showcase) -->
+<section class="more-cats" id="moreCats">
+  <div class="section-head reveal">
+    <div>
+      <p class="eyebrow">More departments</p>
+      <h2>Shop by category</h2>
+    </div>
+  </div>
+  <div id="moreCatsWrap"></div>
+</section>
+
+<!-- RECENTLY VIEWED (added) -->
+<section class="recently hidden" id="recently">
+  <div class="section-head reveal">
+    <div>
+      <p class="eyebrow">Picked for you</p>
+      <h2>Recently viewed</h2>
+    </div>
+    <button class="link-btn" id="clearRecent">Clear history</button>
+  </div>
+  <div class="recent-row" id="recentGrid"></div>
+</section>
+
+<!-- OFFER -->
+<section class="offer reveal" id="drop">
+  <div class="offer-card">
+    <div>
+      <p class="eyebrow">Limited offer</p>
+      <h2>Autumn sale — up to 40% off</h2>
+      <p class="muted">Offer ends soon. Prices return to normal when the timer hits zero.</p>
+      <div class="timer" role="timer" aria-label="Sale countdown">
+        <div><b id="tH">12</b><small>Hours</small></div><span>:</span>
+        <div><b id="tM">45</b><small>Mins</small></div><span>:</span>
+        <div><b id="tS">30</b><small>Secs</small></div>
+      </div>
+    </div>
+    <figure><img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=800&q=80&auto=format&fit=crop" alt="Volt Drone V2 on offer" /><span class="off-badge">−40%</span></figure>
+  </div>
+</section>
+
+<!-- SHOP -->
+<section class="shop" id="shop">
+  <div class="section-head reveal">
+    <div>
+      <p class="eyebrow">Catalog</p>
+      <h2>Shop all products</h2>
+      <p class="muted" id="resultCount"></p>
+    </div>
+    <div class="filters">
+      <div class="pill-group" id="catPills" role="tablist">
+        <button class="pill active" data-cat="all">All</button>
+        <button class="pill" data-cat="audio">Audio</button>
+        <button class="pill" data-cat="wearables">Wearables</button>
+        <button class="pill" data-cat="drones">Drones</button>
+        <button class="pill" data-cat="gaming">Gaming</button>
+      </div>
+      <select id="sortSel" class="sort" aria-label="Sort products">
+        <option value="feat">Featured</option>
+        <option value="low">Price: Low to High</option>
+        <option value="high">Price: High to Low</option>
+        <option value="rating">Top rated</option>
+      </select>
+    </div>
+  </div>
+  <div class="grid" id="productGrid" aria-live="polite"></div>
+  <p class="empty hidden" id="emptyMsg">No products match your search. Try “drone”, “watch” or “buds”.</p>
+</section>
+
+<!-- PERKS -->
+<section class="perks reveal" id="support">
+  <div class="perk"><span class="perk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h11v10H3zM14 10h4l3 3v4h-7z"/><circle cx="7" cy="19" r="1.6"/><circle cx="17" cy="19" r="1.6"/></svg></span><div><b>Fast, free shipping</b><small>Free express over $99 · dispatched in 24h</small></div></div>
+  <div class="perk"><span class="perk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 5 6v5c0 5 3.4 8.4 7 10 3.6-1.6 7-5 7-10V6z"/><path d="m9 12 2 2 4-4"/></svg></span><div><b>2-year warranty</b><small>Full cover including accidental damage</small></div></div>
+  <div class="perk"><span class="perk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7M3 4v5h5"/></svg></span><div><b>30-day returns</b><small>No questions asked · instant refunds</small></div></div>
+  <div class="perk"><span class="perk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span><div><b>Secure checkout</b><small>256-bit encryption · buyer protection</small></div></div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="section-head reveal">
+    <div><p class="eyebrow">Reviews</p><h2>Rated 4.9 by 32,000+ buyers</h2></div>
+    <div class="slider-btns"><button id="revPrev" class="icon-btn" aria-label="Previous">←</button><button id="revNext" class="icon-btn" aria-label="Next">→</button></div>
+  </div>
+  <div class="rev-track-wrap reveal"><div class="rev-track" id="revTrack">
+    <div class="rev-card"><div class="stars">★★★★★</div><p>“Aura X1 sounds like a private concert. Setup took two minutes and delivery arrived a day early.”</p><div class="rev-user"><img src="https://i.pravatar.cc/100?img=12" alt="Maya"/><div><b>Maya R.</b><small>Verified buyer · Aura X1</small></div></div></div>
+    <div class="rev-card"><div class="stars">★★★★★</div><p>“Ordered the Volt Drone V2 at night, flew it the next evening. The 8K footage is unreal.”</p><div class="rev-user"><img src="https://i.pravatar.cc/100?img=32" alt="Dev"/><div><b>Dev K.</b><small>Verified buyer · Volt Drone V2</small></div></div></div>
+    <div class="rev-card"><div class="stars">★★★★★</div><p>“Pulse Watch Ultra lasts the full two weeks as promised. Looks far more premium in person.”</p><div class="rev-user"><img src="https://i.pravatar.cc/100?img=47" alt="Sofia"/><div><b>Sofia L.</b><small>Verified buyer · Pulse Watch</small></div></div></div>
+    <div class="rev-card"><div class="stars">★★★★★</div><p>“Keyboard + speaker combo transformed my desk. Support replied within minutes.”</p><div class="rev-user"><img src="https://i.pravatar.cc/100?img=59" alt="Arjun"/><div><b>Arjun P.</b><small>Verified buyer · Mech 75</small></div></div></div>
+  </div></div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="news reveal">
+  <div class="news-card">
+    <div><h2>Get 15% off your first order</h2><p class="muted">Join 90,000 subscribers. Early drops, member prices, no spam.</p></div>
+    <form id="newsForm"><input type="email" id="newsEmail" placeholder="you@example.com" required aria-label="Email" /><button type="submit" class="btn-primary">Subscribe</button></form>
+    <small id="newsMsg" role="status"></small>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="foot-grid">
+    <div><span class="brand-name">VOLTX</span><p class="muted">Premium everyday tech — designed to last, priced fairly, supported for years.</p></div>
+    <div><b>Shop</b><a href="#shop">Audio</a><a href="#shop">Wearables</a><a href="#shop">Drones</a><a href="#shop">Gaming</a></div>
+    <div><b>Support</b><a href="#support">Track order</a><a href="#support">Returns</a><a href="#support">Warranty</a><a href="#support">Contact</a></div>
+    <div><b>Payment</b><p class="pay"><span>Visa</span><span>Mastercard</span><span>UPI</span><span>PayPal</span></p></div>
+  </div>
+  <p class="copy">© 2026 VOLTX Labs · Demo storefront · Prices in USD</p>
+</footer>
+
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="cartDrawer" aria-label="Shopping cart">
+  <div class="drawer-head"><h3>Your cart <span id="drawerCount">(0)</span></h3><button class="icon-btn" id="cartClose" aria-label="Close cart">✕</button></div>
+  <div class="ship-progress"><p id="shipMsg"></p><div class="bar"><span id="shipFill"></span></div></div>
+  <div class="drawer-items" id="cartItems"></div>
+  <div class="drawer-foot">
+    <div class="promo-row"><input id="promoInput" placeholder="Promo code — try VOLT15" aria-label="Promo code" /><button id="promoBtn">Apply</button></div>
+    <div class="row"><span>Subtotal</span><b id="subTotal">$0.00</b></div>
+    <div class="row dim"><span>Discount</span><b id="discount">−$0.00</b></div>
+    <div class="row total"><span>Total</span><b id="grandTotal">$0.00</b></div>
+    <button class="btn-primary full" id="checkoutBtn"><span>Checkout securely</span></button>
+    <button class="link-btn" id="continueBtn">Continue shopping</button>
+  </div>
+</aside>
+
+<div class="modal-wrap hidden" id="quickView"><div class="modal" id="qvBox" role="dialog" aria-modal="true"></div></div>
+
+<div class="modal-wrap hidden" id="checkoutModal">
+  <div class="modal checkout" role="dialog" aria-modal="true">
+    <h3>Checkout</h3>
+    <p class="muted">Demo checkout — no real payment is processed.</p>
+    <div class="co-row"><input placeholder="Full name" id="coName" autocomplete="name"/><input placeholder="Email" id="coEmail" type="email" autocomplete="email"/></div>
+    <input placeholder="Street address" id="coAddr" autocomplete="street-address"/>
+    <div class="co-row"><input placeholder="Card number 4242 4242 4242 4242" inputmode="numeric"/><input placeholder="CVV" maxlength="4" inputmode="numeric"/></div>
+    <button class="btn-primary full" id="payBtn"><span>Pay <b id="payAmt">$0.00</b></span></button>
+    <button class="link-btn" id="coClose">Cancel</button>
+    <div class="success hidden" id="paySuccess"><div class="check">✓</div><h4>Order confirmed</h4><p>Order <b id="orderId">#VTX-0000</b> is being prepared.</p></div>
+  </div>
+</div>
+
+<div class="toasts" id="toasts" aria-live="polite"></div>
+<button class="to-top hidden" id="toTop" aria-label="Back to top">↑</button>
+<canvas id="dust" aria-hidden="true"></canvas>
+
+<!-- SUPPORT CHAT (added) -->
+<button class="chat-fab" id="chatFab" aria-label="Chat with support">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a8 8 0 0 1-8 8H4l2-3a8 8 0 1 1 15-5z"/><circle cx="9" cy="12" r="1" fill="currentColor"/><circle cx="13" cy="12" r="1" fill="currentColor"/><circle cx="17" cy="12" r="1" fill="currentColor"/></svg>
+  <span class="chat-ping"></span>
+</button>
+<div class="chat-panel hidden" id="chatPanel" role="dialog" aria-label="Support chat">
+  <div class="chat-head"><span class="chat-avatar">V</span><div><b>Volty Support</b><small><i></i>Online — replies instantly</small></div><button id="chatClose" aria-label="Close chat">✕</button></div>
+  <div class="chat-msgs" id="chatMsgs"></div>
+  <div class="chat-quick" id="chatQuick">
+    <button data-q="track">Track my order</button>
+    <button data-q="shipping">Shipping info</button>
+    <button data-q="returns">Returns</button>
+    <button data-q="offer">Any discount?</button>
+  </div>
+  <form class="chat-form" id="chatForm"><input id="chatInput" placeholder="Type a message…" autocomplete="off" aria-label="Type a message"/><button type="submit" aria-label="Send">➤</button></form>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
